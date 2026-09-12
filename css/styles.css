@@ -432,6 +432,14 @@ button { font: inherit; color: inherit; }
   padding: 6px 8px 0 0;
   color: var(--brown);
 }
+.now-h { margin-top: 26px; padding-top: 18px; border-top: 2px solid var(--ink); }
+.now-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.now-list li {
+  display: flex; gap: 10px; align-items: baseline;
+  font-size: 16px; line-height: 1.35; color: var(--body);
+  border-bottom: 1px solid var(--rule2); padding-bottom: 7px;
+}
+.now-list li::before { content: "◆"; font-size: 8px; color: var(--brown); flex: none; }
 .about-side { padding-left: 32px; }
 .side-h {
   font: 600 11px/1 var(--sans);

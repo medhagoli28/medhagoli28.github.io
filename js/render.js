@@ -89,6 +89,12 @@ export function about(a, n = 1) {
     `<div class="about-grid">
       <div class="about-copy reveal">
         ${a.paragraphs.map((t) => `<p>${esc(t)}</p>`).join("")}
+        ${
+          a.currently?.length
+            ? `<div class="side-h now-h">Right now</div>
+               <ul class="now-list">${a.currently.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`
+            : ""
+        }
       </div>
       <aside class="about-side reveal" data-delay="1">
         <div class="side-h">Education</div>

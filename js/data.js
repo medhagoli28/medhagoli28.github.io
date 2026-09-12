@@ -21,8 +21,16 @@ export const profile = {
 
 export const about = {
   paragraphs: [
-    "I'm a computer science student at Cornell (class of 2028), originally from Overland Park, Kansas. I like building things end to end: a pipeline that researches the day's WSJ headlines and publishes a digest every morning, a quant dashboard that scores eleven assets on risk-adjusted return, and a from-scratch backtester I can explain line by line.",
-    "This past summer I shipped bug fixes and AI features as a software engineering intern at two New York startups. Before that I worked in data science and project management, and I spent a year analyzing EEG data in a neuroimaging lab. I care about tools that quietly do their job every day without being babysat.",
+    "Hi, I'm Medha. I grew up in Overland Park, Kansas, and I'm now a computer science major at Cornell, class of 2028. My favorite kind of project is the one that keeps working after I close the laptop. The best example is a WSJ digest that wakes up every morning, researches the day's headlines from other outlets, and files a fresh issue before I'm awake. It exists because I kept losing track of the stories I meant to read.",
+    "I have a soft spot for markets. I've built a dashboard that scores eleven assets on risk-adjusted return and a momentum backtester with no library underneath, mostly so I could explain every line of it out loud. Before any of that I spent a year in a neuroimaging lab writing R scripts against rat EEG data, which taught me that cleaning the data is the actual job.",
+    "Away from a screen: seven years of tennis and a newer pickleball habit, Bollywood and Kuchipudi dance, NFL Sundays, and a weekly slot coaching MATHCOUNTS over video for a middle school back home. I am also the person who brings a deck of cards to everything.",
+  ],
+  /** Short "right now" list shown under the bio. */
+  currently: [
+    "Taking Intro to Machine Learning at Cornell",
+    "Recruiting for summer 2027 software engineering internships",
+    "Keeping The Deep Digest publishing every morning, two months and counting",
+    "Coaching MATHCOUNTS remotely every week",
   ],
   education: {
     school: "Cornell University",
