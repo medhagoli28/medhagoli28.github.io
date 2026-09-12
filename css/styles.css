@@ -1,7 +1,8 @@
 /* ============================================================
    styles.css — visual theme carried over from "The Deep Digest"
-   (the WSJ daily-summaries project): cream paper, Newsreader
-   serif, system-ui small caps, brown / green / plum accents.
+   (the WSJ daily-summaries project): cream paper, brown / green /
+   plum accents. Type: Playfair Display for headlines, Source Sans 3
+   for running text and labels.
    ============================================================ */
 
 /* ---------- design tokens (light = the digest palette) ---------- */
@@ -25,8 +26,8 @@
   --shadow: 0 0 40px rgba(0, 0, 0, 0.12);
   --card-shadow: 0 18px 40px -22px rgba(28, 26, 21, 0.45);
 
-  --serif: "Newsreader", Georgia, "Times New Roman", serif;
-  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --nav-h: 54px;
   --gutter: 44px;
@@ -65,8 +66,8 @@ body {
   margin: 0;
   background: var(--outer);
   color: var(--ink);
-  font-family: var(--serif);
-  font-size: 17px;
+  font-family: var(--sans);
+  font-size: 17.5px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.35s ease, color 0.35s ease;
@@ -78,6 +79,12 @@ img { max-width: 100%; display: block; }
 button { font: inherit; color: inherit; }
 
 .sans { font-family: var(--sans); }
+/* Playfair carries every headline, name, and italic aside */
+.navbrand, .hero-name, .hero-tagline, .section-title, .page-title, .page-dek,
+.edu-school, .edu-degree, .entry-role, .entry-org, .card-title, .card-sub,
+.hobby-label, .hobby-detail, .next-title, .about-copy p:first-child::first-letter {
+  font-family: var(--display);
+}
 
 /* the newspaper column */
 .paper {
@@ -92,7 +99,7 @@ button { font: inherit; color: inherit; }
 
 /* small-caps labels used everywhere (kickers, nav, tags) */
 .kicker {
-  font: 600 10.5px/1 var(--sans);
+  font: 600 11.5px/1 var(--sans);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--brown);
@@ -104,7 +111,7 @@ button { font: inherit; color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font: 600 10px/1 var(--sans);
+  font: 600 11px/1 var(--sans);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 10px 14px;
@@ -122,7 +129,7 @@ button { font: inherit; color: inherit; }
 /* tag pills (same recipe as the digest's filter tabs) */
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag {
-  font: 500 10.5px/1 var(--sans);
+  font: 600 11px/1 var(--sans);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 5px 9px;
@@ -180,7 +187,7 @@ button { font: inherit; color: inherit; }
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  font: 500 10.5px/1 var(--sans);
+  font: 600 11.5px/1 var(--sans);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--brown);
@@ -197,14 +204,16 @@ button { font: inherit; color: inherit; }
 }
 .hero-name {
   font-weight: 600;
-  font-size: clamp(48px, 8.5vw, 92px);
-  line-height: 0.98;
-  letter-spacing: -0.02em;
+  font-size: clamp(44px, 7.6vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
   margin: 0 0 18px;
 }
 .hero-name em { font-style: italic; font-weight: 500; color: var(--brown); }
 .hero-tagline {
-  font-size: clamp(18px, 2.1vw, 22px);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(19px, 2.1vw, 23px);
   line-height: 1.45;
   color: var(--body);
   max-width: 34ch;
@@ -261,6 +270,32 @@ button { font: inherit; color: inherit; }
 }
 @keyframes cue { 0%, 100% { transform: scaleY(0.4); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 1; } }
 
+/* ---------- inner-page masthead ---------- */
+.page-head { padding: 36px 0 30px; }
+.page-title {
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 66px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 12px 0 12px;
+}
+.page-dek { font-style: italic; font-size: clamp(18px, 2vw, 22px); color: var(--mut); max-width: 48ch; margin: 0; }
+
+/* ---------- "read next" cards on Home ---------- */
+.next-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.next-card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 22px 22px 24px;
+  background: var(--paper);
+  border: 1px solid var(--rule2);
+  border-top: 2px solid var(--ink);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.next-card:hover { text-decoration: none; transform: translateY(-4px); box-shadow: var(--card-shadow); }
+.next-title { font-weight: 700; font-size: 26px; line-height: 1.05; }
+.next-dek { font-size: 15.5px; line-height: 1.45; color: var(--mut); }
+@media (max-width: 900px) { .next-row { grid-template-columns: 1fr; } }
+
 /* ============================================================
    sticky nav — the digest's panel-colored navbar
    ============================================================ */
@@ -292,7 +327,8 @@ button { font: inherit; color: inherit; }
   gap: 4px;
   overflow-x: auto;
   scrollbar-width: none;
-  font: 500 12px/1 var(--sans);
+  font: 600 14px/1 var(--sans);
+  letter-spacing: 0.02em;
   padding: 0 6px;
 }
 .navtabs::-webkit-scrollbar { display: none; }
@@ -387,7 +423,7 @@ button { font: inherit; color: inherit; }
   gap: 0;
 }
 .about-copy { padding-right: 38px; border-right: 1px solid var(--rule); }
-.about-copy p { font-size: 18.5px; line-height: 1.55; color: var(--body); margin: 0 0 18px; }
+.about-copy p { font-size: 19px; line-height: 1.55; color: var(--body); margin: 0 0 18px; }
 .about-copy p:first-child::first-letter {
   font-size: 3.2em;
   font-weight: 600;
@@ -398,7 +434,7 @@ button { font: inherit; color: inherit; }
 }
 .about-side { padding-left: 32px; }
 .side-h {
-  font: 600 10px/1 var(--sans);
+  font: 600 11px/1 var(--sans);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--mut2);
@@ -410,7 +446,7 @@ button { font: inherit; color: inherit; }
 .course-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .course-list li {
   display: flex; gap: 9px; align-items: baseline;
-  font-size: 14.5px; line-height: 1.25; color: var(--body);
+  font-size: 15.5px; line-height: 1.25; color: var(--body);
   border-bottom: 1px solid var(--rule2); padding-bottom: 7px;
 }
 .course-list .n { font: 600 10px var(--sans); color: var(--brown); width: 14px; flex: none; }
@@ -431,10 +467,10 @@ button { font: inherit; color: inherit; }
   color: var(--mut2);
 }
 .entry-when .loc { display: block; text-transform: none; letter-spacing: 0.02em; color: var(--faint); }
-.entry-role { font-weight: 700; font-size: 24px; line-height: 1.1; margin: 0 0 3px; }
+.entry-role { font-weight: 700; font-size: 23px; line-height: 1.1; margin: 0 0 3px; }
 .entry-org { font-style: italic; font-size: 17px; color: var(--mut); margin-bottom: 12px; }
 .entry-org .at { font-style: normal; color: var(--faint); }
-.entry ul { margin: 0 0 14px; padding-left: 18px; color: var(--body); font-size: 15.5px; line-height: 1.55; }
+.entry ul { margin: 0 0 14px; padding-left: 18px; color: var(--body); font-size: 16.5px; line-height: 1.55; }
 .entry li { margin-bottom: 6px; }
 .entry li::marker { color: var(--brown); }
 
@@ -494,9 +530,9 @@ button { font: inherit; color: inherit; }
 .card.tech .card-cat { color: var(--brown); }
 .card.markets .card-cat { color: var(--green); }
 .card.finance .card-cat { color: var(--plum); }
-.card-title { font-weight: 700; font-size: 23px; line-height: 1.08; margin: 0; }
+.card-title { font-weight: 700; font-size: 22px; line-height: 1.08; margin: 0; }
 .card-sub { font-style: italic; color: var(--mut); font-size: 15px; margin-top: -4px; }
-.card-desc { font-size: 14.5px; line-height: 1.5; color: var(--body); margin: 0; flex: 1; }
+.card-desc { font-size: 15.5px; line-height: 1.5; color: var(--body); margin: 0; flex: 1; }
 .card-links { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 6px; }
 .card-note { font: 500 10px/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); padding-top: 8px; }
 

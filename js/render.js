@@ -49,11 +49,43 @@ export function hero(p) {
     </div>`;
 }
 
+/* ---------- masthead for every page except Home ---------- */
+export function pageHead(meta, p) {
+  return `
+    <div class="mast-top">
+      <span>Portfolio · Est. 2026</span>
+      <span>${esc(p.location)}</span>
+    </div>
+    <div class="page-head">
+      <div class="kicker"><span class="diamond">◆</span>${esc(p.name)}</div>
+      <h1 class="page-title">${esc(meta.title)}</h1>
+      ${meta.dek ? `<p class="page-dek">${esc(meta.dek)}</p>` : ""}
+    </div>`;
+}
+
+/* ---------- "where next" row on the Home page ---------- */
+export function pageLinks(pages) {
+  const others = pages.filter((p) => p.title);
+  return `
+    <div class="next-row">
+      ${others
+        .map(
+          (p, i) => `
+        <a class="next-card reveal" data-delay="${i}" href="${esc(p.file)}">
+          <span class="kicker">Read next</span>
+          <span class="next-title">${esc(p.title)} →</span>
+          <span class="next-dek">${esc(p.dek)}</span>
+        </a>`
+        )
+        .join("")}
+    </div>`;
+}
+
 /* ---------- about ---------- */
-export function about(a) {
+export function about(a, n = 1) {
   const e = a.education;
   return (
-    sectionHead(1, "About", "A short bio") +
+    sectionHead(n, "About", "A short bio") +
     `<div class="about-grid">
       <div class="about-copy reveal">
         ${a.paragraphs.map((t) => `<p>${esc(t)}</p>`).join("")}
@@ -86,17 +118,17 @@ function entry(x, i) {
     </article>`;
 }
 
-export function experience(list) {
-  return sectionHead(2, "Work experience", `${list.length} roles · most recent first`) + list.map(entry).join("");
+export function experience(list, n = 1) {
+  return sectionHead(n, "Work experience", `${list.length} roles · most recent first`) + list.map(entry).join("");
 }
 
-export function research(list) {
-  return sectionHead(4, "Research", "Lab experience") + list.map(entry).join("");
+export function research(list, n = 2) {
+  return sectionHead(n, "Research", "Lab experience") + list.map(entry).join("");
 }
 
-export function leadership(list) {
+export function leadership(list, n = 3) {
   return (
-    sectionHead(5, "Leadership & service", "Clubs, coaching, community") +
+    sectionHead(n, "Leadership & service", "Clubs, coaching, community") +
     list.map((x, i) => entry({ ...x, company: x.org, role: x.org, org: x.role }, i)).join("")
   );
 }
@@ -124,7 +156,7 @@ function cover(title, accent) {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg.trim())}`;
 }
 
-export function projects(list) {
+export function projects(list, n = 1) {
   const cards = list
     .map(
       (p, i) => `
@@ -151,16 +183,16 @@ export function projects(list) {
     )
     .join("");
   return (
-    sectionHead(3, "Projects", `${list.length} projects · filter by tag`) +
+    sectionHead(n, "Projects", `${list.length} projects · filter by tag`) +
     `<div class="filterbar reveal" id="project-filter"></div>
      <div class="project-grid" id="project-grid">${cards}</div>`
   );
 }
 
 /* ---------- skills ---------- */
-export function skills(groups) {
+export function skills(groups, n = 1) {
   return (
-    sectionHead(6, "Skills", "Grouped by category") +
+    sectionHead(n, "Skills", "Grouped by category") +
     `<div class="skills-grid">
       ${groups
         .map(
@@ -176,9 +208,9 @@ export function skills(groups) {
 }
 
 /* ---------- hobbies ---------- */
-export function hobbies(list) {
+export function hobbies(list, n = 2) {
   return (
-    sectionHead(7, "Off the clock", "Hobbies & interests") +
+    sectionHead(n, "Off the clock", "Hobbies & interests") +
     `<div class="hobby-grid">
       ${list
         .map(
@@ -200,6 +232,6 @@ export function hobbies(list) {
 export function footer(p) {
   const y = new Date().getFullYear();
   return `
-    <span>© ${y} ${esc(p.name)} · Set in Newsreader · Built by hand, no frameworks</span>
+    <span>© ${y} ${esc(p.name)} · Set in Playfair Display &amp; Source Sans · Built by hand, no frameworks</span>
     <a href="#top">Back to the top ↑</a>`;
 }

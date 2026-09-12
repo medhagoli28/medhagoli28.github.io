@@ -219,13 +219,28 @@ export const hobbies = [
   { icon: "🃏", label: "Card games", detail: "ask me about my house rules" },
 ];
 
-/** Sticky-nav entries. `id` must match a <section id> in index.html. */
-export const navItems = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "research", label: "Research" },
-  { id: "leadership", label: "Leadership" },
-  { id: "skills", label: "Skills" },
-  { id: "hobbies", label: "Hobbies" },
+/**
+ * Pages. `file` is the HTML file, `label` the nav tab. `title` and `dek`
+ * render in the masthead of every page except Home (which shows the hero).
+ */
+export const pages = [
+  { file: "index.html", label: "Home" },
+  {
+    file: "work.html",
+    label: "Work",
+    title: "Work",
+    dek: "Internships, a year in a neuroimaging lab, and the clubs and coaching I keep up on the side.",
+  },
+  {
+    file: "projects.html",
+    label: "Projects",
+    title: "Projects",
+    dek: "Things I've built end to end and shipped. Filter by tag.",
+  },
+  {
+    file: "more.html",
+    label: "More",
+    title: "More",
+    dek: "What I work with, and what I do off the clock.",
+  },
 ];

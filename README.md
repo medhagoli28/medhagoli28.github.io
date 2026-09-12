@@ -1,11 +1,12 @@
 # Medha Goli — Portfolio
 
-A single-page personal portfolio. Plain HTML, CSS, and ES-module JavaScript,
-no build step, deployable straight to GitHub Pages.
+A four-page personal portfolio (Home, Work, Projects, More). Plain HTML,
+CSS, and ES-module JavaScript, no build step, deployable straight to GitHub
+Pages.
 
-The visual theme is carried over from my [WSJ Deep Digest](https://medhagoli28.github.io/wsj-daily-summaries/)
-project: cream paper, Newsreader serif headlines, system-ui small caps, and
-brown / green / plum accents. The layout and interaction ideas (sticky tabs,
+The color theme is carried over from my [WSJ Deep Digest](https://medhagoli28.github.io/wsj-daily-summaries/)
+project: cream paper, small-caps labels, and brown / green / plum accents.
+Type is Playfair Display for headlines and Source Sans 3 for everything else. The layout and interaction ideas (sticky tabs,
 project switcher, a cursor ribbon that rides along the nav) are inspired by
 [leenadudi.github.io](https://leenadudi.github.io/).
 
@@ -22,11 +23,14 @@ Then open http://localhost:4173.
 
 ## Edit the content
 
-Everything on the page comes from one file: [`js/data.js`](js/data.js).
+Everything on every page comes from one file: [`js/data.js`](js/data.js).
 Update the objects there (profile, about, experience, projects, research,
-leadership, skills, hobbies, navItems) and reload. Sections that
-end up empty (for example `research`) are removed from the page and the nav
-automatically.
+leadership, skills, hobbies, pages) and reload. Sections that end up empty
+(for example `research`) are removed from their page automatically.
+
+Which sections appear on which page is set by the `<section id="…">`
+elements in each HTML file; `js/main.js` maps those ids to renderers. To
+move a section, move its `<section>` tag to another page.
 
 Assets live in `assets/`:
 
@@ -40,12 +44,15 @@ Projects without an `image` get a generated newspaper-style cover.
 ## Layout of the code
 
 ```
-index.html          page shell (hero, nav, empty sections, footer)
+index.html          Home: hero + about + "read next" cards
+work.html           experience + research + leadership
+projects.html       project grid with tag filter
+more.html           skills + hobbies
 css/styles.css      theme tokens (light + dark), components, responsive rules
-js/data.js          all content
+js/data.js          all content (plus the page list)
 js/render.js        HTML "components" — one function per section
-js/main.js          entry point: renders sections, wires up behaviour
-js/nav.js           sticky nav, active-section highlighting
+js/main.js          entry point: renders this page's sections, wires up behaviour
+js/nav.js           sticky nav, current page marked
 js/reveal.js        scroll-triggered fade/slide-in
 js/theme.js         light / dark toggle (persisted in localStorage)
 js/projects.js      tag filter for the project grid
