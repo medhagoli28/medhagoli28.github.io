@@ -26,7 +26,6 @@ function sectionHead(no, title, meta = "") {
 /* ---------- hero ---------- */
 export function hero(p) {
   const [first, ...rest] = p.name.split(" ");
-  const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   return `
     <div class="mast-top">
       <span>Portfolio · Est. 2026</span>
@@ -46,7 +45,6 @@ export function hero(p) {
       </div>
       <figure class="hero-photo">
         <img src="${esc(p.headshot)}" alt="Portrait of ${esc(p.name)}" width="720" height="900" />
-        <figcaption>${esc(p.name)} · ${esc(today)}</figcaption>
       </figure>
     </div>`;
 }
