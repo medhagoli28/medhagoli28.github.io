@@ -534,38 +534,6 @@ button { font: inherit; color: inherit; }
 .hobby-label { font-weight: 700; font-size: 18px; line-height: 1.1; }
 .hobby-detail { font-style: italic; color: var(--mut); font-size: 14px; }
 
-/* ---------- contact ---------- */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
-.contact-blurb { font-size: 18px; line-height: 1.5; color: var(--body); margin: 0 0 22px; }
-.social-list { list-style: none; margin: 0; padding: 0; }
-.social-list li {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding: 10px 0; border-bottom: 1px solid var(--rule2);
-}
-.social-list .k { font: 600 10px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--mut2); }
-.social-list a { font-style: italic; font-size: 17px; border-bottom: 1px solid var(--brown); }
-.social-list a:hover { text-decoration: none; color: var(--brown); }
-
-.form { display: grid; gap: 12px; }
-.form label { display: grid; gap: 6px; }
-.form .lbl { font: 600 10px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--mut2); }
-.form input, .form textarea {
-  width: 100%;
-  font: 400 16px/1.4 var(--serif);
-  color: var(--ink);
-  background: var(--paper);
-  border: 1px solid var(--edge);
-  border-radius: 2px;
-  padding: 10px 12px;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-.form input:focus, .form textarea:focus { border-color: var(--brown); }
-.form textarea { min-height: 130px; resize: vertical; }
-.form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.form-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.form-hint { font: 400 11px/1.5 var(--sans); color: var(--faint); }
-
 /* ---------- footer ---------- */
 .foot {
   display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
@@ -601,7 +569,6 @@ button { font: inherit; color: inherit; }
   .about-side { padding-left: 0; }
   .skills-grid { grid-template-columns: 1fr; }
   .skill-col { padding: 0; border-left: 0; margin-bottom: 26px; }
-  .contact-grid { grid-template-columns: 1fr; }
   .entry { grid-template-columns: 1fr; gap: 8px; }
 }
 @media (max-width: 600px) {
@@ -611,7 +578,6 @@ button { font: inherit; color: inherit; }
   .navbrand { display: none; }
   .navtab { padding: 17px 8px 15px; }
   .section { padding: 42px var(--gutter) 46px; }
-  .form .row { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
   .section-head { flex-direction: column; align-items: flex-start; gap: 4px; }
   .section-meta { text-align: left; }

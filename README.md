@@ -24,7 +24,7 @@ Then open http://localhost:4173.
 
 Everything on the page comes from one file: [`js/data.js`](js/data.js).
 Update the objects there (profile, about, experience, projects, research,
-leadership, skills, hobbies, contact, navItems) and reload. Sections that
+leadership, skills, hobbies, navItems) and reload. Sections that
 end up empty (for example `research`) are removed from the page and the nav
 automatically.
 
@@ -65,16 +65,6 @@ the tab baseline, and any tab it passes through gets a brief glow.
 
 The effect is skipped on touch devices and when `prefers-reduced-motion`
 is set.
-
-## Contact form
-
-The form builds a `mailto:` link with the fields pre-filled, so nothing is
-stored anywhere. To use [Formspree](https://formspree.io) instead:
-
-1. Create a form on Formspree and copy its endpoint.
-2. In `js/main.js`, delete the `submit` handler at the bottom.
-3. In `js/render.js`, add `action="https://formspree.io/f/YOUR_ID" method="POST"`
-   to the `<form>` tag.
 
 ## Deploy to GitHub Pages
 

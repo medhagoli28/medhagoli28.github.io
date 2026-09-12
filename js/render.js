@@ -198,35 +198,6 @@ export function hobbies(list) {
   );
 }
 
-/* ---------- contact ---------- */
-export function contact(c) {
-  return (
-    sectionHead(8, "Get in touch", "Email is fastest") +
-    `<div class="contact-grid">
-      <div class="reveal">
-        <p class="contact-blurb">${esc(c.blurb)}</p>
-        <ul class="social-list">
-          ${c.socials
-            .map((s) => `<li><span class="k">${esc(s.label)}</span><a href="${esc(s.href)}"${ext(s.href)}>${esc(s.handle)}</a></li>`)
-            .join("")}
-        </ul>
-      </div>
-      <form class="form reveal" id="contact-form" data-delay="1" data-email="${esc(c.email)}">
-        <div class="row">
-          <label><span class="lbl">Your name</span><input name="name" type="text" required autocomplete="name" /></label>
-          <label><span class="lbl">Your email</span><input name="email" type="email" required autocomplete="email" /></label>
-        </div>
-        <label><span class="lbl">Subject</span><input name="subject" type="text" placeholder="Hello from…" /></label>
-        <label><span class="lbl">Message</span><textarea name="message" required></textarea></label>
-        <div class="form-foot">
-          <button class="btn" type="submit">Send message →</button>
-          <span class="form-hint">Opens in your mail app. No data is stored.</span>
-        </div>
-      </form>
-    </div>`
-  );
-}
-
 /* ---------- footer ---------- */
 export function footer(p) {
   const y = new Date().getFullYear();

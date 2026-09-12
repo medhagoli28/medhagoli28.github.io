@@ -15,9 +15,9 @@
  */
 
 const POINTS = 34;          // chain length
-const FOLLOW = 0.42;        // how eagerly each point chases the one ahead (0..1)
-const SPRING = 0.16;        // head spring stiffness
-const DAMPING = 0.68;       // head velocity damping
+const FOLLOW = 0.62;        // how eagerly each point chases the one ahead (0..1)
+const SPRING = 0.30;        // head spring stiffness
+const DAMPING = 0.6;        // head velocity damping
 const MAX_WIDTH = 9;        // stroke width at the head (px)
 const IDLE_FADE_MS = 1400;  // ribbon fades after the pointer rests this long
 const HOT_RADIUS = 46;      // px from tab center that counts as "through the tab"

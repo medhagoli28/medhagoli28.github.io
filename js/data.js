@@ -219,17 +219,6 @@ export const hobbies = [
   { icon: "🃏", label: "Card games", detail: "ask me about my house rules" },
 ];
 
-export const contact = {
-  email: "medha.goli@gmail.com",
-  blurb:
-    "I'm looking for software engineering internships for summer 2027 and always happy to talk about news pipelines, quant tooling, or anything I've built. The form opens your mail client with the message pre-filled.",
-  socials: [
-    { label: "Email", href: "mailto:medha.goli@gmail.com", handle: "medha.goli@gmail.com" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/medhagoli", handle: "in/medhagoli" },
-    { label: "GitHub", href: "https://github.com/medhagoli28", handle: "medhagoli28" },
-  ],
-};
-
 /** Sticky-nav entries. `id` must match a <section id> in index.html. */
 export const navItems = [
   { id: "about", label: "About" },
@@ -239,5 +228,4 @@ export const navItems = [
   { id: "leadership", label: "Leadership" },
   { id: "skills", label: "Skills" },
   { id: "hobbies", label: "Hobbies" },
-  { id: "contact", label: "Contact" },
 ];
